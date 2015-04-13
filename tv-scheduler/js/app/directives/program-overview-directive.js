@@ -38,7 +38,8 @@
         scope: {
             program: '=model',
             viewStartTime: '=viewStartTime',
-            viewEndTime: '=viewEndTime'
+            viewEndTime: '=viewEndTime',
+            isExpanded: '=isExpanded'
         },
         templateUrl: '/partials/program-overview.html',
         replace: true,

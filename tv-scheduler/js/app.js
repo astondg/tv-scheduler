@@ -1,7 +1,7 @@
 /*
 Concatinated JS file 
 Author: Aston Gilliland 
-Created Date: 2015-04-09
+Created Date: 2015-04-11
  */ 
 angular.module('tvSchedulerApp', ['ngRoute'])
        .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
@@ -199,7 +199,8 @@ angular.module('tvSchedulerApp', ['ngRoute'])
         scope: {
             program: '=model',
             viewStartTime: '=viewStartTime',
-            viewEndTime: '=viewEndTime'
+            viewEndTime: '=viewEndTime',
+            isExpanded: '=isExpanded'
         },
         templateUrl: '/partials/program-overview.html',
         replace: true,
@@ -278,7 +279,7 @@ angular.module('tvSchedulerApp', ['ngRoute'])
                 resolve([
                     {
                         name: 'test program 1',
-                        description: '',
+                        description: 'bla bla bla this is a description of a program that is showing at a time on a channel',
                         startTime: moment(),
                         endTime: moment().add(60, 'minutes'),
                         channelId: 1
@@ -338,28 +339,28 @@ angular.module('tvSchedulerApp', ['ngRoute'])
                         description: '',
                         startTime: moment(),
                         endTime: moment().add(30, 'minutes'),
-                        channelId: 4
+                        channelId: 5
                     },
                     {
                         name: 'test program 10',
                         description: '',
                         startTime: moment().add(30, 'minutes'),
                         endTime: moment().add(60,'minutes'),
-                        channelId: 4
+                        channelId: 5
                     },
                     {
                         name: 'test program 11',
                         description: '',
                         startTime: moment().add(60, 'minutes'),
                         endTime: moment().add(100, 'minutes'),
-                        channelId: 4
+                        channelId: 5
                     },
                     {
                         name: 'test program 12',
                         description: '',
                         startTime: moment().add(100, 'minutes'),
                         endTime: moment().add(120, 'minutes'),
-                        channelId: 4
+                        channelId: 5
                     },
                 ]);
             });

@@ -13,7 +13,7 @@
                 resolve([
                     {
                         name: 'test program 1',
-                        description: '',
+                        description: 'bla bla bla this is a description of a program that is showing at a time on a channel',
                         startTime: moment(),
                         endTime: moment().add(60, 'minutes'),
                         channelId: 1
@@ -73,28 +73,28 @@
                         description: '',
                         startTime: moment(),
                         endTime: moment().add(30, 'minutes'),
-                        channelId: 4
+                        channelId: 5
                     },
                     {
                         name: 'test program 10',
                         description: '',
                         startTime: moment().add(30, 'minutes'),
                         endTime: moment().add(60,'minutes'),
-                        channelId: 4
+                        channelId: 5
                     },
                     {
                         name: 'test program 11',
                         description: '',
                         startTime: moment().add(60, 'minutes'),
                         endTime: moment().add(100, 'minutes'),
-                        channelId: 4
+                        channelId: 5
                     },
                     {
                         name: 'test program 12',
                         description: '',
                         startTime: moment().add(100, 'minutes'),
                         endTime: moment().add(120, 'minutes'),
-                        channelId: 4
+                        channelId: 5
                     },
                 ]);
             });

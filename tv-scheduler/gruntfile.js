@@ -72,7 +72,8 @@
             views: {
                 files: [
                     'index.html',
-                    'views/*.html'
+                    'views/*.html',
+                    'partials/*.html'
                 ],
                 options: {
                     livereload: true
