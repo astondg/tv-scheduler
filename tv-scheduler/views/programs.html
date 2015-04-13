@@ -1,7 +1,0 @@
-﻿<div class="grouped-program-list" data-ng-class="{'showing-now': programGroup.showingNow}" data-ng-repeat="programGroup in programsByRelativeTime">
-    <div class="col-md-12">
-        <h3>{{programGroup.title}}</h3>
-        <hr />
-        <program-overview data-model="program" data-ng-repeat="program in programGroup.programs | filter:programIsInView" />
-    </div>
-</div>
