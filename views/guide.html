@@ -16,13 +16,16 @@
         </div>
         <div class="guide-row" data-ng-repeat="channel in channels">
             <div class="col-md-3 col-lg-2 channel-list-item">
-                <img data-ng-src="{{channel.iconPath}}" alt="{{channel.name}}" width="40" height="40" />
-                <span class="pull-right">{{channel.number}}</span>
+                <div>
+                    <img data-ng-src="{{channel.iconPath}}" alt="{{channel.name}}" width="40" height="40" />
+                    <span class="pull-right">{{channel.number}}</span>
+                </div>
             </div>
-            <div class="col-md-9 col-lg-10">
+            <div class="col-md-9 col-lg-10 program-list-item">
                 <div class="row">
                     <div class="col-md-12 guide-program-list">
                         <program-overview data-model="program" data-view-start-time="viewStartTime" data-view-end-time="viewEndTime" data-ng-repeat="program in programsInView | filter:{channelId: channel.id}" />
+                        <div></div>
                     </div>
                 </div>
             </div>

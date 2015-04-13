@@ -1,7 +1,7 @@
 /*
 Concatinated JS file 
 Author: Aston Gilliland 
-Created Date: 2015-04-11
+Created Date: 2015-04-13
  */ 
 angular.module('tvSchedulerApp', ['ngRoute'])
        .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {

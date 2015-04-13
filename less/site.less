@@ -37,19 +37,30 @@
  * 2. Remove the gap between images and borders on image containers: h5bp.com/i/440
  */
 
-img { border: 0; -ms-interpolation-mode: bicubic; vertical-align: middle; }
+img {
+    border: 0;
+    -ms-interpolation-mode: bicubic;
+    vertical-align: middle;
+}
 
 /*
  * Correct overflow not hidden in IE9
  */
 
-svg:not(:root) { overflow: hidden; }
+svg:not(:root) {
+    overflow: hidden;
+}
 
 /* =============================================================================
    Chrome Frame Prompt
    ========================================================================== */
 
-.chromeframe { margin: 0.2em 0; background: #ccc; color: black; padding: 0.2em 0; }
+.chromeframe {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: black;
+    padding: 0.2em 0;
+}
 
 header {
     margin-bottom: 20px;
@@ -63,6 +74,12 @@ header {
     }
 
     border-width: 0;
+}
+
+.input-group {
+    -moz-box-shadow: 2px 4px 8px #222;
+    -webkit-box-shadow: 2px 4px 8px #222;
+    box-shadow: 2px 4px 8px #222;
 }
 
 .input-group-lg > .form-control, .input-group-lg > .input-group-addon, .input-group-lg > .input-group-btn > .btn {
@@ -82,11 +99,17 @@ header {
 }
 
 .heading-row {
-    padding-bottom: 15px;
+    margin-bottom: 15px;    
+    -moz-box-shadow: 0 4px 8px #222;
+    -webkit-box-shadow: 0 4px 8px #222;
+    box-shadow: 0 4px 8px #222;
 }
 
 .channel-list-item {
-    height: 60px;
+
+    div {
+        padding: 5px 10px 5px 10px;
+    }
 
     span {
         display: inline-block;
@@ -106,6 +129,10 @@ header {
 
 .channel-list-heading, .hour-heading {
     padding: 2px 0 2px 0;
+}
+
+.channel-list-heading {
+    padding-left: 10px;
 }
 
 .hour-heading {
@@ -166,19 +193,23 @@ header {
     }
 }
 
+.program-list-item {
+    background-color: @body-bg;
+}
+
 .guide-row {
     .row();
     margin-bottom: 2px;
+    background-color: #444;
 }
 
 .guide-program-list {
     position: relative;
-    
+
     .program-overview {
         &.showing-now {
             /*border-color: @now-color;*/
-            box-shadow: inset 6px 0 0 orangered,
-                        inset 0 -4px 0 orangered;
+            box-shadow: inset 6px 0 0 orangered, inset 0 -4px 0 orangered;
         }
 
         border-right: 2px solid @body-bg;
