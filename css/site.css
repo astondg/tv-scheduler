@@ -2152,7 +2152,7 @@ fieldset[disabled] .btn-warning.active {
 .btn-danger {
   color: #ffffff;
   background-color: #d9534f;
-  border-color: #d43f3a;
+  border-color: #d9534f;
 }
 .btn-danger:hover,
 .btn-danger:focus,
@@ -2162,7 +2162,7 @@ fieldset[disabled] .btn-warning.active {
 .open > .dropdown-toggle.btn-danger {
   color: #ffffff;
   background-color: #c9302c;
-  border-color: #ac2925;
+  border-color: #c12e2a;
 }
 .btn-danger:active,
 .btn-danger.active,
@@ -2188,7 +2188,7 @@ fieldset[disabled] .btn-danger:active,
 .btn-danger[disabled].active,
 fieldset[disabled] .btn-danger.active {
   background-color: #d9534f;
-  border-color: #d43f3a;
+  border-color: #d9534f;
 }
 .btn-danger .badge {
   color: #d9534f;
@@ -3927,6 +3927,9 @@ header {
   width: 60%;
   text-align: left;
   margin-right: 0;
+  -moz-box-shadow: 0 4px 6px;
+  -webkit-box-shadow: 0 4px 6px;
+  box-shadow: 0 4px 6px;
 }
 .grouped-program-list .program-overview {
   border: 2px solid;
@@ -3944,7 +3947,7 @@ header {
   margin-left: -15px;
   margin-right: -15px;
   margin-bottom: 2px;
-  background-color: #444;
+  background-color: #444444;
 }
 .guide-program-list {
   position: relative;
@@ -3972,5 +3975,8 @@ header {
 .program-overview .description .btn-default {
   margin-top: 10px;
   background-color: #d9534f;
+}
+.program-overview .btn-danger {
+  margin-top: 10px;
 }
 /*# sourceMappingURL=site.css.map */

@@ -179,6 +179,9 @@ header {
         width: 60%;
         text-align: left;
         margin-right: 0;
+        -moz-box-shadow: 0 4px 6px;
+        -webkit-box-shadow: 0 4px 6px;
+        box-shadow: 0 4px 6px;
     }
 
     .program-overview {
@@ -200,7 +203,7 @@ header {
 .guide-row {
     .row();
     margin-bottom: 2px;
-    background-color: #444;
+    background-color: @btn-default-bg;
 }
 
 .guide-program-list {
@@ -233,5 +236,9 @@ header {
     .description .btn-default {
         margin-top: 10px;
         background-color: @btn-danger-bg;
+    }
+
+    .btn-danger {
+        margin-top: 10px;
     }
 }

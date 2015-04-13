@@ -24,8 +24,8 @@
             <div class="col-md-9 col-lg-10 program-list-item">
                 <div class="row">
                     <div class="col-md-12 guide-program-list">
-                        <program-overview data-model="program" data-view-start-time="viewStartTime" data-view-end-time="viewEndTime" data-ng-repeat="program in programsInView | filter:{channelId: channel.id}" />
-                        <div></div>
+                        <program-overview data-model="program" data-view-start-time="viewStartTime" data-view-end-time="viewEndTime" data-ng-repeat="program in programsInViewForChannel = (programsInView | filter:{channelId: channel.id})" />
+                        <h3 class="no-programs" data-ng-hide="programsInViewForChannel.length">&nbsp;</h3>
                     </div>
                 </div>
             </div>
