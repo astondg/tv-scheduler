@@ -24,7 +24,8 @@ angular.module('tvSchedulerApp', ['ngRoute'])
 
            $locationProvider.html5Mode(true);
        }]);
-angular.module('tvSchedulerApp')
+
+angular.module('tvSchedulerApp')
        .controller('guideController',
                    ['$scope', 'channelService', 'programService', function ($scope, channelService, programService) {
 
@@ -53,7 +54,8 @@ angular.module('tvSchedulerApp', ['ngRoute'])
 
                    }]);
 
-angular.module('tvSchedulerApp').controller('programsController', ['$scope', 'programService', function ($scope, programService) {
+
+angular.module('tvSchedulerApp').controller('programsController', ['$scope', 'programService', function ($scope, programService) {
 
     $scope.viewStartTime = moment();
     $scope.viewEndTime = moment().add(3, 'hours');
@@ -124,8 +126,10 @@ angular.module('tvSchedulerApp', ['ngRoute'])
     }
 
 }]);
-
-angular.module('tvSchedulerApp').directive('currentTime', function ($timeout, dateFilter) {
+
+
+
+angular.module('tvSchedulerApp').directive('currentTime', function ($timeout, dateFilter) {
     var timeoutId;
 
     function updateTime(element, format) {
@@ -159,7 +163,8 @@ angular.module('tvSchedulerApp', ['ngRoute'])
         link: link
     };
 });
-angular.module('tvSchedulerApp').directive('programOverview', function () {
+
+angular.module('tvSchedulerApp').directive('programOverview', function () {
 
     function calculateMinutesInView(programStartTime, programEndTime, viewStartTime, viewEndTime) {
 
@@ -202,14 +207,15 @@ angular.module('tvSchedulerApp', ['ngRoute'])
             viewEndTime: '=viewEndTime',
             isExpanded: '=isExpanded'
         },
-        templateUrl: '/partials/program-overview.html',
+        templateUrl: 'partials/program-overview.html',
         replace: true,
         link: link
     };
 
 });
 
-angular.module('tvSchedulerApp').factory('channelService', ['$q', function ($q) {
+
+angular.module('tvSchedulerApp').factory('channelService', ['$q', function ($q) {
 
     //var channelResource = $resource('/api/channel/:id');
 
@@ -226,35 +232,35 @@ angular.module('tvSchedulerApp', ['ngRoute'])
                         id: 1,
                         name: 'One HD',
                         number: 1,
-                        iconPath: '/img/250px-Channel_seven.jpg',
+                        iconPath: 'img/250px-Channel_seven.jpg',
                         tunerId: '111AAA'
                     },
                     {
                         id: 2,
                         name: 'ABC',
                         number: 2,
-                        iconPath: '/img/250px-Channel_seven.jpg',
+                        iconPath: 'img/250px-Channel_seven.jpg',
                         tunerId: '222BBB'
                     },
                     {
                         id: 3,
                         name: 'SBSONE',
                         number: 3,
-                        iconPath: '/img/250px-Channel_seven.jpg',
+                        iconPath: 'img/250px-Channel_seven.jpg',
                         tunerId: '333CCC'
                     },
                     {
                         id: 4,
                         name: 'Seven',
                         number: 7,
-                        iconPath: '/img/250px-Channel_seven.jpg',
+                        iconPath: 'img/250px-Channel_seven.jpg',
                         tunerId: '444DDD'
                     },
                     {
                         id: 5,
                         name: 'Nine',
                         number: 9,
-                        iconPath: '/img/250px-Channel_seven.jpg',
+                        iconPath: 'img/250px-Channel_seven.jpg',
                         tunerId: '555EEE'
                     }
                 ]);
@@ -264,7 +270,8 @@ angular.module('tvSchedulerApp', ['ngRoute'])
 
     return channelService;
 }]);
-angular.module('tvSchedulerApp').factory('programService', ['$q', function ($q) {
+
+angular.module('tvSchedulerApp').factory('programService', ['$q', function ($q) {
 
     //var programResource = $resource('/api/program/:id');
 
