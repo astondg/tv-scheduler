@@ -41,7 +41,7 @@
             viewEndTime: '=viewEndTime',
             isExpanded: '=isExpanded'
         },
-        templateUrl: '/partials/program-overview.html',
+        templateUrl: 'partials/program-overview.html',
         replace: true,
         link: link
     };

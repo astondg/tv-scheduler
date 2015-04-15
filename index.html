@@ -42,11 +42,11 @@
                     <span class="navbar-brand"></span>
                 </div>
 
-                <div class="collapse navbar-collapse" id="navbar-collapse">
+                <div id="navbar-collapse" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li><a class="btn btn-default navbar-btn" href="/guide">Guide</a></li>
-                        <li><a class="btn btn-default navbar-btn" href="/programs">Programs</a></li>
-                        <li><a class="btn btn-default navbar-btn" href="/schedule">Schedule</a></li>
+                        <li><a class="btn btn-default navbar-btn" href="guide">Guide</a></li>
+                        <li><a class="btn btn-default navbar-btn" href="programs">Programs</a></li>
+                        <li><a class="btn btn-default navbar-btn" href="schedule">Schedule</a></li>
                     </ul>
                 </div>
             </div>
@@ -56,9 +56,9 @@
             <div class="col-sm-offset-0 col-sm-12 col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6">
                 <form role="search">
                     <div class="input-group input-group-lg">
-                        <input type="text" class="form-control" placeholder="program name">
+                        <input type="text" class="form-control" placeholder="program name" data-ng-model="searchTerm">
                         <div class="input-group-btn">
-                            <button type="submit" class="btn btn-default">Search</button>
+                            <button type="submit" class="btn btn-default" data-ng-click="searchForProgram(searchTerm)">Search</button>
                         </div>
                     </div>
                 </form>
@@ -73,19 +73,20 @@
 
     <!-- JavaScript at the bottom for fast page loading -->
     <!-- Grab Google CDN's libs, with a protocol relative URL; fall back to local if offline -->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js" type="text/javascript"></script>
     <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js" type="text/javascript"><\/script>')</script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.6/angular.min.js" type="text/javascript"></script>
     <script>window.angular || document.write('<script src="js/libs/angular.min.js" type="text/javascript"><\/script>')</script>
     <!-- TODO add local fallback -->
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.6/angular-route.js" type="text/javascript"></script>
     <!--<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.6/angular-resource.js" type="text/javascript"></script>-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <!-- TODO add CDN url -->
     <script src="js/libs/moment.js" type="text/javascript"></script>
     <script src="js/libs/underscore-min.js" type="text/javascript"></script>
 
     <!-- scripts concatenated and minified via build script -->
-    <script src="js/app.js"></script>
+    <script src="js/app.min.js"></script>
 
     <!-- live reload when files change -->
     <script src="//localhost:35729/livereload.js"></script>

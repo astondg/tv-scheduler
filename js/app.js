@@ -109,6 +109,7 @@ angular.module('tvSchedulerApp', ['ngRoute'])
                           startTime: _.min(programsShowingLater, 'startTime'),
                           programs: programsShowingLater
                       });
+
                   });
 
     $scope.dateHeader = function (programGroup) {

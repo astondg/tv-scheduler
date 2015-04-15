@@ -31,7 +31,8 @@
         uglify: {
             options: {
                 //  banner for inserting at the top of the result
-                banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
+                banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n',
+                sourceMap: true
             },
             build: {
                 src: ['js/app.js'],
@@ -43,7 +44,7 @@
         copy: {
             main: {
                 files: [
-                    { expand: true, cwd: 'less', src: ['*.css'], dest: 'css/', filter: 'isFile' }
+                    { expand: true, cwd: 'less', src: ['site.css'], dest: 'css/', filter: 'isFile' }
                 ]
             }
         },
