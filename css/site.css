@@ -3925,6 +3925,7 @@ header {
   font-size: 0;
   border: 0;
   width: 60%;
+  margin-left: 0;
   text-align: left;
   margin-right: 0;
   -moz-box-shadow: 0 4px 6px;
@@ -3957,7 +3958,7 @@ header {
 }
 .guide-program-list .program-overview.showing-now {
   /*border-color: @now-color;*/
-  box-shadow: inset 6px 0 0 orangered, inset 0 -4px 0 orangered;
+  box-shadow: -2px 2px 2px #666666 inset, 3px 0 2px orangered inset, 0 -3px 2px orangered inset;
 }
 .program-overview {
   display: inline-block;
