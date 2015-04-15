@@ -1,7 +1,7 @@
 /*
 Concatinated JS file 
 Author: Aston Gilliland 
-Created Date: 2015-04-13
+Created Date: 2015-04-15
  */ 
 angular.module('tvSchedulerApp', ['ngRoute'])
        .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
@@ -56,7 +56,7 @@ angular.module('tvSchedulerApp', ['ngRoute'])
 angular.module('tvSchedulerApp').controller('programsController', ['$scope', 'programService', function ($scope, programService) {
 
     $scope.viewStartTime = moment();
-    $scope.viewEndTime = moment().add(3, 'hours');
+    $scope.viewEndTime = moment().add(6, 'hours');
     $scope.programsByRelativeTime = [];
 
     programService.getProgramsInTimeRange($scope.viewStartTime, $scope.viewEndTime)
@@ -203,7 +203,7 @@ angular.module('tvSchedulerApp', ['ngRoute'])
             viewEndTime: '=viewEndTime',
             isExpanded: '=isExpanded'
         },
-        templateUrl: '/partials/program-overview.html',
+        templateUrl: 'partials/program-overview.html',
         replace: true,
         link: link
     };
@@ -227,35 +227,35 @@ angular.module('tvSchedulerApp', ['ngRoute'])
                         id: 1,
                         name: 'One HD',
                         number: 1,
-                        iconPath: '/img/250px-Channel_seven.jpg',
+                        iconPath: 'img/250px-Channel_seven.jpg',
                         tunerId: '111AAA'
                     },
                     {
                         id: 2,
                         name: 'ABC',
                         number: 2,
-                        iconPath: '/img/250px-Channel_seven.jpg',
+                        iconPath: 'img/250px-Channel_seven.jpg',
                         tunerId: '222BBB'
                     },
                     {
                         id: 3,
                         name: 'SBSONE',
                         number: 3,
-                        iconPath: '/img/250px-Channel_seven.jpg',
+                        iconPath: 'img/250px-Channel_seven.jpg',
                         tunerId: '333CCC'
                     },
                     {
                         id: 4,
                         name: 'Seven',
                         number: 7,
-                        iconPath: '/img/250px-Channel_seven.jpg',
+                        iconPath: 'img/250px-Channel_seven.jpg',
                         tunerId: '444DDD'
                     },
                     {
                         id: 5,
                         name: 'Nine',
                         number: 9,
-                        iconPath: '/img/250px-Channel_seven.jpg',
+                        iconPath: 'img/250px-Channel_seven.jpg',
                         tunerId: '555EEE'
                     }
                 ]);
