@@ -1,15 +1,14 @@
-﻿angular.module('tvSchedulerApp').factory('channelService', ['$q', function ($q) {
+﻿angular.module('tvSchedulerApp').factory('channelService', ['$q', '$resource', function ($q, $resource) {
 
-    //var channelResource = $resource('/api/channel/:id');
+    var channelResource = $resource('/api/channel/:id');
 
     var channelService = {
-
         getAllChannels: function () {
-
-            //channelResource.query(function (result) {
-            //});
-
             return $q(function (resolve) {
+                //channelResource.get(function (result) {
+                //    resolve(result);
+                //});
+
                 resolve([
                     {
                         id: 1,

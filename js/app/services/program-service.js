@@ -1,15 +1,14 @@
-﻿angular.module('tvSchedulerApp').factory('programService', ['$q', function ($q) {
+﻿angular.module('tvSchedulerApp').factory('programService', ['$q', '$resource', function ($q, $resource) {
 
-    //var programResource = $resource('/api/program/:id');
+    var programResource = $resource('/api/program/:id');
 
     var programService = {
-
         getProgramsInTimeRange: function (startTime, endTime) {
-
-            //programResource.get({ startTime: startTime, endTime: endTime }, function (result) {
-            //});
-
             return $q(function (resolve) {
+                //programResource.get({ startTime: startTime, endTime: endTime }, function (result) {
+                //    resolve(result);
+                //});
+
                 resolve([
                     {
                         name: 'test program 1',
@@ -79,7 +78,7 @@
                         name: 'test program 10',
                         description: '',
                         startTime: moment().add(30, 'minutes'),
-                        endTime: moment().add(60,'minutes'),
+                        endTime: moment().add(60, 'minutes'),
                         channelId: 5
                     },
                     {

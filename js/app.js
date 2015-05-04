@@ -1,9 +1,9 @@
 /*
 Concatinated JS file 
 Author: Aston Gilliland 
-Created Date: 2015-04-15
+Created Date: 2015-05-04
  */ 
-angular.module('tvSchedulerApp', ['ngRoute'])
+angular.module('tvSchedulerApp', ['ngRoute', 'ngResource'])
        .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
            $routeProvider
                .when('/guide', {
@@ -26,7 +26,7 @@ angular.module('tvSchedulerApp', ['ngRoute'])
        }]);
 angular.module('tvSchedulerApp')
        .controller('guideController',
-                   ['$scope', 'channelService', 'programService', function ($scope, channelService, programService) {
+                   ['$scope', 'channelService', 'programService', 'guideConfigurationService', function ($scope, channelService, programService, guideConfigurationService) {
 
                        channelService.getAllChannels()
                                      .then(function (result) {
@@ -35,8 +35,8 @@ angular.module('tvSchedulerApp', ['ngRoute'])
 
                                      });
 
-                       $scope.viewStartTime = moment();
-                       $scope.viewEndTime = moment().add(3, 'hours');
+                       $scope.viewStartTime = guideConfigurationService.viewStartTime;
+                       $scope.viewEndTime = guideConfigurationService.viewEndTime;
 
                        programService.getProgramsInTimeRange($scope.viewStartTime, $scope.viewEndTime)
                                      .then(function (result) {
@@ -45,18 +45,14 @@ angular.module('tvSchedulerApp', ['ngRoute'])
 
                                      });
 
-                       $scope.hoursInView = [
-                           '1:00pm',
-                           '2:00pm',
-                           '3:00pm'
-                       ];
+                       $scope.hoursInView = guideConfigurationService.getHoursInView();
 
                    }]);
 
-angular.module('tvSchedulerApp').controller('programsController', ['$scope', 'programService', function ($scope, programService) {
+angular.module('tvSchedulerApp').controller('programsController', ['$scope', 'programService', 'guideConfigurationService', function ($scope, programService, guideConfigurationService) {
 
-    $scope.viewStartTime = moment();
-    $scope.viewEndTime = moment().add(6, 'hours');
+    $scope.viewStartTime = guideConfigurationService.viewStartTime;
+    $scope.viewEndTime = guideConfigurationService.viewEndTime;
     $scope.programsByRelativeTime = [];
 
     programService.getProgramsInTimeRange($scope.viewStartTime, $scope.viewEndTime)
@@ -210,18 +206,17 @@ angular.module('tvSchedulerApp', ['ngRoute'])
 
 });
 
-angular.module('tvSchedulerApp').factory('channelService', ['$q', function ($q) {
+angular.module('tvSchedulerApp').factory('channelService', ['$q', '$resource', function ($q, $resource) {
 
-    //var channelResource = $resource('/api/channel/:id');
+    var channelResource = $resource('/api/channel/:id');
 
     var channelService = {
-
         getAllChannels: function () {
-
-            //channelResource.query(function (result) {
-            //});
-
             return $q(function (resolve) {
+                //channelResource.get(function (result) {
+                //    resolve(result);
+                //});
+
                 resolve([
                     {
                         id: 1,
@@ -265,18 +260,65 @@ angular.module('tvSchedulerApp', ['ngRoute'])
 
     return channelService;
 }]);
-angular.module('tvSchedulerApp').factory('programService', ['$q', function ($q) {
+angular.module('tvSchedulerApp').factory('guideConfigurationService', ['$window', function ($window) {
+    
+    var isWideView = $('#regularWidth').is(':hidden');
+    var numberOfHoursInView = function() {
+        return isWideView ? 4 : 3;
+    };
 
-    //var programResource = $resource('/api/program/:id');
+    var guideConfigurationService = {
+        isWideView: isWideView,
+        viewStartTime: moment(),
+        viewEndTime: moment().add(numberOfHoursInView(), 'hours'),
+        numberOfHoursInView: numberOfHoursInView,
+        getHoursInView: function () {
+            var numberOfHoursInView = isWideView ? 4 : 3;
+            var hoursInView = [];
+
+            for (var i = 0; i < numberOfHoursInView; i++) {
+                hoursInView.push(moment(this.viewStartTime).add(1, 'hours'));
+            }
+
+            return hoursInView;
+        }
+    };
+
+    // Use property setters to keep start & end time hours in sync
+    guideConfigurationService.prototype = {        
+        get viewStartTime() {
+            return this._viewStartTime;
+        },
+        set viewStartTime(val) {
+            this._viewStartTime = val;
+            this.__viewEndTime = moment(val).add(this.numberOfHoursInView(), 'hours');
+        },
+        get viewEndTime() {
+            return this._viewEndTime;
+        },
+        set viewEndTime(val) {
+            this._viewEndTime = val;
+            this._viewStartTime = moment(val).subtract(this.numberOfHoursInView(), 'hours');
+        }
+    };
+
+    $window.addEventListener('resize', function () {
+        guideConfigurationService.isWideView = $('#regularWidth').is(':hidden');
+    });
+
+    return guideConfigurationService;
+}]);
+angular.module('tvSchedulerApp').factory('programService', ['$q', '$resource', function ($q, $resource) {
+
+    var programResource = $resource('/api/program/:id');
 
     var programService = {
-
         getProgramsInTimeRange: function (startTime, endTime) {
-
-            //programResource.get({ startTime: startTime, endTime: endTime }, function (result) {
-            //});
-
             return $q(function (resolve) {
+                //programResource.get({ startTime: startTime, endTime: endTime }, function (result) {
+                //    resolve(result);
+                //});
+
                 resolve([
                     {
                         name: 'test program 1',
@@ -346,7 +388,7 @@ angular.module('tvSchedulerApp', ['ngRoute'])
                         name: 'test program 10',
                         description: '',
                         startTime: moment().add(30, 'minutes'),
-                        endTime: moment().add(60,'minutes'),
+                        endTime: moment().add(60, 'minutes'),
                         channelId: 5
                     },
                     {

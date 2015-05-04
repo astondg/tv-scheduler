@@ -1,4 +1,4 @@
-﻿angular.module('tvSchedulerApp', ['ngRoute'])
+﻿angular.module('tvSchedulerApp', ['ngRoute', 'ngResource'])
        .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
            $routeProvider
                .when('/guide', {

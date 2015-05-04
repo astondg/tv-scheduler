@@ -1,7 +1,7 @@
-﻿angular.module('tvSchedulerApp').controller('programsController', ['$scope', 'programService', function ($scope, programService) {
+﻿angular.module('tvSchedulerApp').controller('programsController', ['$scope', 'programService', 'guideConfigurationService', function ($scope, programService, guideConfigurationService) {
 
-    $scope.viewStartTime = moment();
-    $scope.viewEndTime = moment().add(6, 'hours');
+    $scope.viewStartTime = guideConfigurationService.viewStartTime;
+    $scope.viewEndTime = guideConfigurationService.viewEndTime;
     $scope.programsByRelativeTime = [];
 
     programService.getProgramsInTimeRange($scope.viewStartTime, $scope.viewEndTime)

@@ -44,5 +44,5 @@ build/buildinfo.properties
 build/config/buildinfo.properties
 
 # pacakge manager files
-node_modules
-bower_components
+**/node_modules
+**/bower_components
